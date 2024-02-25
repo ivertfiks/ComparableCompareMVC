@@ -5,6 +5,8 @@ import Service.ProductManager;
 import View.ProductView;
 import View.UserInterfaceCommands;
 
+import java.io.IOException;
+
 public class ProductController {
 
     private ProductModel model;
@@ -21,10 +23,18 @@ public class ProductController {
         int number;
         while (isRunable) {
             view.printMenu();
-            number = view.getInteger();
+            try {
+                number = view.getInteger();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
             switch (number) {
                 case 1:
-                    productManager.addProducts();
+                    try {
+                        productManager.addProduct();
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
                     break;
                 case 2:
                     productManager.sortProducts();
@@ -42,7 +52,7 @@ public class ProductController {
                     isRunable = false;
                     break;
                 default:
-                    System.out.println(UserInterfaceCommands.ERROR_INPUT);
+                    System.out.println(UserInterfaceCommands.ERROR_INPUT.getCommandName());
                     break;
             }
         }

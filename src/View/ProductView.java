@@ -1,5 +1,6 @@
 package View;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class ProductView {
@@ -16,15 +17,15 @@ public class ProductView {
         }
     }
 
-    public int getInteger() {
+    public int getInteger() throws IOException {
         return input.nextInt();
     }
 
-    public String getString() {
+    public String getString() throws IOException {
         return input.nextLine();
     }
 
-    public double getDouble() {
+    public double getDouble() throws IOException {
         return input.nextDouble();
     }
 
