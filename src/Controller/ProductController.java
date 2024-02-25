@@ -2,7 +2,6 @@ package Controller;
 
 import Model.ProductModel;
 import Service.ProductManager;
-import Service.ProductService;
 import View.ProductView;
 import View.UserInterfaceCommands;
 
@@ -10,20 +9,18 @@ public class ProductController {
 
     private ProductModel model;
     private ProductView view;
-    private ProductService service;
     private ProductManager productManager;
 
     public ProductController() {
         this.model = new ProductModel();
         this.view = new ProductView();
-        this.service = new ProductService();
+        productManager = new ProductManager();
     }
-
     public void run() {
         boolean isRunable = true;
-        view.printMenu();
         int number;
         while (isRunable) {
+            view.printMenu();
             number = view.getInteger();
             switch (number) {
                 case 1:

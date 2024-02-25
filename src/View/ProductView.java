@@ -11,19 +11,21 @@ public class ProductView {
     }
 
     public void printMenu() {
-
+        for(MenuOperations operations : MenuOperations.values()){
+            System.out.println(operations.getOperaion());
+        }
     }
 
     public int getInteger() {
-        return this.input.nextInt();
+        return input.nextInt();
     }
 
     public String getString() {
-        return this.input.nextLine();
+        return input.nextLine();
     }
 
     public double getDouble() {
-        return this.input.nextDouble();
+        return input.nextDouble();
     }
 
     public void showText(String text) {

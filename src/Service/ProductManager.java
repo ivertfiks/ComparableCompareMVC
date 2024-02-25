@@ -10,7 +10,7 @@ import java.util.List;
 
 public class ProductManager {
     private List<ProductModel> productList = new ArrayList<>();
-    private ProductView view;
+    private ProductView view = new ProductView();
     public void add(ProductModel product){
         productList.add(product);
     }
@@ -25,11 +25,12 @@ public class ProductManager {
         int id;
         double price;
         String productName;
-        System.out.println(UserInterfaceCommands.INPUT_ID);
+        System.out.println(UserInterfaceCommands.INPUT_ID.getCommandName());
         id = view.getInteger();
-        System.out.println(UserInterfaceCommands.INPUT_NAME);
+        view.getString();
+        System.out.println(UserInterfaceCommands.INPUT_NAME.getCommandName());
         productName = view.getString();
-        System.out.println(UserInterfaceCommands.INPUT_PRICE);
+        System.out.println(UserInterfaceCommands.INPUT_PRICE.getCommandName());
         price = view.getDouble();
         productList.add(new ProductModel(id, productName, price));
     }
